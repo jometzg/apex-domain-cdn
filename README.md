@@ -7,7 +7,8 @@ PaaS services usually expose the individual services as fully-qualified domain n
 Customers often need to use a more friendly domain name and therefore use DNS services to provide a custom domain. CNAME records may be used for this service. So a CNAME record for a custom domain is created which points to the FQDN of the PaaS service. With some configuration at the PaaS service (and generally the registration of an SSL certificate), a service can be quickly delivered against a custom domain name.
 
 ## Conventional domains
-This works pretty smoothly with a conventional domain. In my example www.metronzone.com. 
+This works pretty smoothly with a conventional domain. In the example below, a user needs to access a web app which is itself fronted by a CDN. A custom domain name is needed for the domain www.metronzone.com. Your domain's DNS service is configured with a CNAME record which points to the URL of the CDN endpoint and the CDN endpoint is also configured to accept that domaain name.
+
 ![www domain](www-domain-simple.png)
 
 You create a DNS CNAME pointing to the CDN endpoint
