@@ -68,3 +68,22 @@ server {
 
 }
 ```
+NGINX is easily packaged as a Docker container and this loaded into Web App for Containers (a flavour of Azure App Services). There are probably numerous github repos that show how to build customised NGINX containers.
+
+### Function Proxy
+Azure functions uses the same underlying runtime as app services, so can benefit from app services' ability to use an apex domain.
+
+In addition, functions have a proxy capability which may be used to redirect requests in similar manner to that of NGINX.
+
+Below is a test proxy in an Azure function which redirect all inbound requests to another URL:
+
+![Function proxy](function-proxy.png)
+
+As can be seen from above, the whole path of the URL inbound to this proxy is redirected to the https://www.metronzone.com.
+
+In order for this to work completely, the domain would also need to be set alongside the installation of an SSL certificate for that domain.
+
+
+# Summary
+The inherent difficulty with PaaS services and CNAMEs cane be side-stepped by using an app service or function which is defined for the apex domain, which can then redirect all traffic to a more normal (non-apex) domain. This solution should be cost effective as the proxy is PaaS and can be either serverless or on a low tier app service plan. 
+
