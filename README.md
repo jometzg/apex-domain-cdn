@@ -16,5 +16,16 @@ You create a DNS CNAME pointing to the CDN endpoint
 and then make sure your CDN is aware of this DNS name.
 ![CDN to domain](cdn-to-dns.png)
 
+## So, what's the problem?
+This scheme works well for www.domain.com or app.domain.com, but if the customer wants an *apex domain* (sometimes referred to as root or naked domains) e.g. metronzone.com, then this is where it gets a little more complicated.
+
+The DNS specification does not allow CNAME records for apex domains. See [here](https://www.isc.org/blogs/cname-at-the-apex-of-a-zone/#:~:text=The%20DNS%20record%20type%20CNAME,canonical%20name%20(CNAME)%20RR.) for more. So you cannot set this in your DNS provider. So, some other way must be found.
+
+## Potential solutions
+There are some solutions and this problem and the complexity really depends on whether you want to move your DNS provider. I will cover these in turn.
+
+## 1. Move you DNS to an Azure DNS Zone
+
+
 ## Example flow
 ![Example flow](apex-domain.png)
