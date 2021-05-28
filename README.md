@@ -87,5 +87,5 @@ In order for this to work completely, the domain would also need to be set along
 
 
 # Summary
-The inherent difficulty with PaaS services and CNAMEs cane be side-stepped by using an app service or function which is defined for the apex domain, which can then redirect all traffic to a more normal (non-apex) domain. This solution should be cost effective as the proxy is PaaS and can be either serverless or on a low tier app service plan. 
+The inherent difficulty with PaaS services and apex domains can be side-stepped by using an app service or function which is configured for the apex domain, which can then redirect all traffic to a more normal (non-apex) domain. This solution should be cost effective as the proxy is PaaS and can be either serverless or on a low tier app service plan. 
 
