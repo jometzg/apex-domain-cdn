@@ -25,7 +25,7 @@ The DNS specification does not allow CNAME records for apex domains. See [here](
 There are some solutions and this problem and the complexity really depends on whether you want to move your DNS provider. I will cover these in turn.
 
 ## 1. Move you DNS to an Azure DNS Zone
-This is the simplest solution. Azure DNS Zones suport the idea of *alias record sets* - these allow you to point a record (even an apex record *@*) to a specific Azure PaaS resource).
+This is the simplest solution. Azure DNS Zones suport the idea of *alias record sets* - these allow you to point a record (even an apex record *@*) to a specific Azure PaaS resource.
 ![Azure DNS Zone](azure-dns-alias.png)
 
 This works effectively, but the downside is that changing DNS providers is often a difficult thing to do and many times is a company/organisation wide decision that one application team cannot influence.
