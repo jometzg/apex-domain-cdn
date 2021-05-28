@@ -28,6 +28,8 @@ There are some solutions and this problem and the complexity really depends on w
 This is the simplest solution. Azure DNS Zones suport the idea of *alias record sets* - these allow you to point a record (even an apex record *@*) to a specific Azure PaaS resource.
 ![Azure DNS Zone](azure-dns-alias.png)
 
+In the above, a DNS *@* apex record is configured to point at an Azure CDN. This can be done for traffic manager, public IP addresses, front door, CDN and static web sites.
+
 This works effectively, but the downside is that changing DNS providers is often a difficult thing to do and many times is a company/organisation wide decision that one application team cannot influence.
 
 ## 2. Move to a DNS provider that supports CNAME flattening
