@@ -36,7 +36,13 @@ This approach is much like the previous one, but it is to use a 3rd-party DNS pr
 This has the same simplicity upsides as choosing Azure DNS Zones, but also the same downside - if your existing DNS provider does not support this, then it would require a DNS move with all the complexity that involves.
 
 ## 3. Use a PaaS service to perform HTTP redirects from the apex domain to wwww.domain
+Azure App Services allow you to set a custom domain and this can also be an apex domain.
+![app service custom DNS](app-service-custom-domain.png)
+As you can see above, this app service (in combination with your DNS provider) allows you to set an apex domain for your app service. 
 
+So, how does this help if my app needs Azure CDN infront and the apex domain for this?
 
-## Example flow
+What this app service can do is perform a redirect from mmetronzone.com to www.metronzone.com (which the CDN can easily be set to using a CNAME record). In this way, any requests to metronzone.com will be redirected by the app service to wwww.metronzone.com - which is CNAMEed to the CDN endpoint.
+
+A diagram below represents the flows:
 ![Example flow](apex-domain.png)
