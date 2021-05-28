@@ -25,6 +25,17 @@ The DNS specification does not allow CNAME records for apex domains. See [here](
 There are some solutions and this problem and the complexity really depends on whether you want to move your DNS provider. I will cover these in turn.
 
 ## 1. Move you DNS to an Azure DNS Zone
+This is the simplest solution. Azure DNS Zones suport the idea of *alias record sets* - these allow you to point a record (even an apex record *@*) to a specific Azure PaaS resource).
+![Azure DNS Zone](azure-dns-alias.png)
+
+This works effectively, but the downside is that changing DNS providers is often a difficult thing to do and many times is a company/organisation wide decision that one application team cannot influence.
+
+## 2. Move to a DNS provider that supports CNAME flattening
+This approach is much like the previous one, but it is to use a 3rd-party DNS provider that supports *CNAME flattening* which is explained [here](https://social.dnsmadeeasy.com/blog/how-does-cname-flattening-work/#:~:text=CNAME%20flattening%20allows%20you%20to,to%20that%20in%20a%20minute)
+
+This has the same simplicity upsides as choosing Azure DNS Zones, but also the same downside - if your existing DNS provider does not support this, then it would require a DNS move with all the complexity that involves.
+
+## 3. Use a PaaS service to perform HTTP redirects from the apex domain to wwww.domain
 
 
 ## Example flow
