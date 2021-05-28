@@ -44,7 +44,7 @@ As you can see above, this app service (in combination with your DNS provider) a
 
 So, how does this help if my app needs Azure CDN infront and the apex domain for this?
 
-What this app service can do is perform a redirect from mmetronzone.com to www.metronzone.com (which the CDN can easily be set to using a CNAME record). In this way, any requests to metronzone.com will be redirected by the app service to wwww.metronzone.com - which is CNAMEed to the CDN endpoint.
+What this app service can do is perform a redirect from *metronzone.com* to *www.metronzone.com* (which the CDN can easily be set to using a CNAME record). In this way, any requests to metronzone.com will be redirected by the app service to wwww.metronzone.com - which is CNAMEed to the CDN endpoint.
 
 A diagram below represents the flows:
 
