@@ -9,3 +9,4 @@ Customers often need to use a more friendly domain name and therefore use DNS se
 
 
 ## Example flow
+![Example flow](apex-domain.png)
