@@ -52,9 +52,8 @@ A diagram below represents the flows:
 
 There are a few potential approaches to how the app service redirects. These could be:
 * Install [NGINX](https://www.nginx.com/) in the web app and set a rewrite rule
-* Write some ASP.NET to perform a redirect 
 * provision a function app and write a function proxy
-
+* Potentially write some ASP.NET to perform a redirect (not covered here)
 
 ### NGINX approach
 NGINX is one of the best know proxy products. 
