@@ -45,4 +45,26 @@ So, how does this help if my app needs Azure CDN infront and the apex domain for
 What this app service can do is perform a redirect from mmetronzone.com to www.metronzone.com (which the CDN can easily be set to using a CNAME record). In this way, any requests to metronzone.com will be redirected by the app service to wwww.metronzone.com - which is CNAMEed to the CDN endpoint.
 
 A diagram below represents the flows:
+
 ![Example flow](apex-domain.png)
+
+There are a few potential approaches to how the app service redirects. These could be:
+* Install [NGINX](https://www.nginx.com/) in the web app and set a rewrite rule
+* Write some ASP.NET to perform a redirect 
+* provision a function app and write a function proxy
+
+
+### NGINX approach
+NGINX is one of the best know proxy products. 
+
+set *nginx.conf* to:
+
+```
+server {
+    
+    if ($host = metronzone.com) {
+        return 301 http://www.metronzone.com$request_uri;
+    } 
+
+}
+```
